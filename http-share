@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+set -e
+set -u
+
+curl "$HTTP_SHARE_SERVER?name=$1" \
+  -u "$HTTP_SHARE_USER:$HTTP_SHARE_PASS" \
+  --data-binary "@$2" --silent | jq -r .data
